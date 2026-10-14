@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import { Ban, BookOpen, FolderGit2, LayoutGrid, Receipt, UserCog, Users } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -22,8 +22,27 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Tipos de usuario',
+        href: '/tipos-usuario',
+        icon: Users,
+    },
+    {
+        title: 'Usuarios',
+        href: '/usuarios',
+        icon: UserCog,
+    },
+    {
+        title: 'Multas',
+        href: '/multas',
+        icon: Receipt,
+    },
+    {
+        title: 'Suspensiones',
+        href: '/suspensiones',
+        icon: Ban,
+    },
 ];
-
 const footerNavItems: NavItem[] = [
     {
         title: 'Repository',

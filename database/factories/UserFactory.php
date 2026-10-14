@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\TipoUsuario;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -29,6 +30,12 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
+            'documento_identidad' => fake()->unique()->numerify('########'),
+            'tipo_usuario_id' => fn () => TipoUsuario::firstOrCreate(
+                ['nombre' => 'Estudiante'],
+                ['max_prestamos' => 3, 'dias_prestamo_default' => 7],
+            )->id,
+            'estado' => 'activo',
             'remember_token' => Str::random(10),
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,

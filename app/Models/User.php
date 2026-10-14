@@ -81,6 +81,11 @@ class User extends Authenticatable implements MustVerifyEmail, PasskeyUser
         return $this->hasMany(Suspension::class, 'user_id');
     }
 
+        public function puedePrestar(): bool
+    {
+        return $this->estado === 'activo';
+    }
+
     public function prestamos()
     {
         // return $this->hasMany(Prestamo::class, 'user_id'); // Módulo 2
